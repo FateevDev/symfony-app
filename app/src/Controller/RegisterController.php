@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Dto\UserDto;
 use App\Entity\User;
+use App\Exceptions\UserAlreadyExistsException;
 use App\Repository\UserRepository;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,6 +14,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Throwable;
 
 #[Route('/test', methods: ['POST'], format: 'json')]
 final class RegisterController extends AbstractController
@@ -40,7 +42,11 @@ final class RegisterController extends AbstractController
         $user->setPassword($hashedPassword);
         $user->setRoles(['ROLE_USER']);
 
-        $this->userRepository->save($user);
+        try {
+            $this->userRepository->save($user);
+        } catch (Throwable $e) {
+            throw new UserAlreadyExistsException();
+        }
 
         return new JsonResponse('ok');
     }
