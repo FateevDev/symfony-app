@@ -46,12 +46,12 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "^12.3",
+        "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "6.4.*",
         "symfony/css-selector": "6.4.*",
         "symfony/debug-bundle": "6.4.*",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/maker-bundle": "^1.64",
         "symfony/stopwatch": "6.4.*",
         "symfony/web-profiler-bundle": "6.4.*"
     },
