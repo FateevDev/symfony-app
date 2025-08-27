@@ -1,0 +1,25 @@
+server {
+    listen 80 default_server;
+    root /opt/back/public;
+    index index.php;
+    server_name _;
+    client_max_body_size 2M;
+    large_client_header_buffers 4 32k;
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        add_header 'Access-Control-Allow-Origin' '$http_origin' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD' always;
+        add_header 'Access-Control-Allow-Headers' 'X-Requested-With, Content-Type, X-Token-Auth, Authorization, X-CustomHeader, dev-mode' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+        try_files $uri /index.php = 404;
+        fastcgi_pass backend:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
