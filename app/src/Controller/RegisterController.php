@@ -15,7 +15,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/test', methods: ['POST'], format: 'json')]
-final class TestController extends AbstractController
+final class RegisterController extends AbstractController
 {
     public function __construct(
         private readonly LoggerInterface $logger,
@@ -38,6 +38,7 @@ final class TestController extends AbstractController
         );
 
         $user->setPassword($hashedPassword);
+        $user->setRoles(['ROLE_USER']);
 
         $this->userRepository->save($user);
 
