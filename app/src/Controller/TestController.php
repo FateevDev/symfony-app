@@ -11,6 +11,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/test', methods: ['POST'], format: 'json')]
@@ -19,6 +20,7 @@ class TestController extends AbstractController
     public function __construct(
         private readonly LoggerInterface $logger,
         private readonly UserRepository $userRepository,
+        private readonly UserPasswordHasherInterface $passwordHasher,
     ) {
     }
 
@@ -28,10 +30,17 @@ class TestController extends AbstractController
             acceptFormat: 'json',
         )] UserDto $userDto,
     ): JsonResponse {
-        $this->logger->info('Hello World!');
+        $user = new User($userDto->email);
 
-        $user = new User();
+        $hashedPassword = $this->passwordHasher->hashPassword(
+            $user,
+            $userDto->password
+        );
 
-        return new JsonResponse($userDto->firstName . ' ' . $userDto->lastName);
+        $user->setPassword($hashedPassword);
+
+        $this->userRepository->save($user);
+
+        return new JsonResponse('ok');
     }
 }

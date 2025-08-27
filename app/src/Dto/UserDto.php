@@ -11,11 +11,12 @@ final readonly class UserDto
 {
     public function __construct(
         #[Assert\NotBlank]
-        #[SerializedName('first_name')]
-        public string $firstName,
+        #[Assert\Email(mode: 'strict')]
+        #[SerializedName('email')]
+        public string $email,
         #[Assert\NotBlank]
-        #[SerializedName('last_name')]
-        public string $lastName,
+        #[SerializedName('password')]
+        public string $password,
     ) {
     }
 }
