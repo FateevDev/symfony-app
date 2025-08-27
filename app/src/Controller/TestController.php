@@ -15,7 +15,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/test', methods: ['POST'], format: 'json')]
-class TestController extends AbstractController
+final class TestController extends AbstractController
 {
     public function __construct(
         private readonly LoggerInterface $logger,
