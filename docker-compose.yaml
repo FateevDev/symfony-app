@@ -4,7 +4,7 @@ services:
     platform: linux/amd64
     volumes:
       - ./build/local/nginx/templates:/etc/nginx/templates
-      - ./src:/opt/back
+      - ./app:/opt/back
     ports:
       - ${APP_PORT}:80
     depends_on:
@@ -13,12 +13,11 @@ services:
   backend:
     image: thecodingmachine/php:8.3-v4-fpm
     platform: linux/amd64
-    user: "${WWWUSER}:${WWWGROUP}"
     volumes:
-      - ./build/local/php/conf.d/xdebug.ini:/etc/php/conf.d/99_xdebug.ini:ro
-      - ./build/local/php/conf.d/spx.ini:/etc/php/conf.d/100_spx.ini:ro
-      - ./build/local/php/php-fpm.d/custom.conf:/etc/php/php-fpm.d/x-www-custom.conf:ro
-      - ./src:/opt/back
+#      - ./build/local/php/conf.d/xdebug.ini:/etc/php/conf.d/99_xdebug.ini:ro
+#      - ./build/local/php/conf.d/spx.ini:/etc/php/conf.d/100_spx.ini:ro
+      - ./build/local/php/php-fpm.d/custom.conf:/etc/php/8.3/fpm/pool.d/x-www-custom.conf:ro
+      - ./app:/opt/back
     working_dir: /opt/back
     environment:
       XDEBUG_MODE: ${XDEBUG_MODE}
