@@ -36,8 +36,10 @@ services:
     environment:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_ROOT_HOST: '%'
     ports:
       - ${DATABASE_PORT}:3306
+    command: --bind-address=0.0.0.0
 #    healthcheck:
 #      test: [ "CMD-SHELL", "/usr/bin/mysql --user=root --password=\"$DATABASE_ROOT_PASSWORD\" --execute \"SHOW DATABASES;\" | grep \"$DATABASE_NAME\"" ]
 #      interval: 2s
