@@ -1,3 +1,21 @@
+up:
+	make down
+	docker compose up -d nginx
+
+down:
+	docker compose down --remove-orphans
+
+install:
+	make env
+	make up
+	docker compose exec backend composer install
+
+env:
+	test -f .env || cp .env.example .env
+
+bash:
+	docker compose exec backend bash
+
 SERVICE_NAME = $(filter-out $@,$(MAKECMDGOALS))
 %:
  @:

@@ -27,6 +27,9 @@
       <path value="$PROJECT_DIR$/app/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/app/vendor/doctrine/sql-formatter" />
       <path value="$PROJECT_DIR$/app/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/app/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/app/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/app/vendor/lexik/jwt-authentication-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/masterminds/html5" />
       <path value="$PROJECT_DIR$/app/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/app/vendor/myclabs/deep-copy" />
@@ -138,9 +141,6 @@
       <path value="$PROJECT_DIR$/app/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/app/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/app/vendor/lcobucci/clock" />
-      <path value="$PROJECT_DIR$/app/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/app/vendor/lexik/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
@@ -222,7 +222,9 @@
       </interpreter>
     </phpInfoCache>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.3">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>

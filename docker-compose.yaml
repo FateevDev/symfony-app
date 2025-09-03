@@ -13,6 +13,7 @@ services:
   backend:
     image: thecodingmachine/php:8.3-v4-fpm
     platform: linux/amd64
+#    user: "${WWWUSER}:${WWWGROUP}"
     volumes:
 #      - ./build/local/php/conf.d/spx.ini:/etc/php/conf.d/100_spx.ini:ro
       - ./build/local/php/php-fpm.d/custom.conf:/etc/php/8.3/fpm/pool.d/x-www-custom.conf:ro
@@ -21,9 +22,12 @@ services:
     environment:
       PHP_EXTENSION_XDEBUG: 1
       XDEBUG_MODE: ${XDEBUG_MODE}
-      XDEBUG_SESSION: ${XDEBUG_SESSION}
+#      XDEBUG_SESSION: ${XDEBUG_SESSION}
       XDEBUG_CONFIG: "client_host=${XDEBUG_REMOTE_HOST} client_port=${XDEBUG_REMOTE_PORT}"
+      PHP_INI_XDEBUG__START_WITH_REQUEST: "trigger"
       PHP_IDE_CONFIG: "serverName=${XDEBUG_IDE_SERVER_NAME}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - database
 #        condition: service_healthy
