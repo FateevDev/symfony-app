@@ -17,7 +17,8 @@ final class TestApiController extends AbstractController
     {
     }
 
-    #[IsGranted('USER_ACCESS')]
+//    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_USER')]
     public function __invoke(): JsonResponse
     {
         $user = $this->getUser();

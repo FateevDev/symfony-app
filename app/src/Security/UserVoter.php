@@ -7,7 +7,7 @@ namespace App\Security;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
-final class UserVoter extends Voter
+final class UserVoter /*extends Voter*/
 {
     protected function supports(string $attribute, mixed $subject): bool
     {
