@@ -48,3 +48,6 @@ migrations-migrate-dry-run:
 	docker compose exec backend php bin/console doctrine:migrations:migrate --dry-run -vvv
 migrations-generate:
 	docker compose exec backend php bin/console doctrine:migrations:generate
+
+generate-keypair:
+	docker compose exec backend php bin/console lexik:jwt:generate-keypair
