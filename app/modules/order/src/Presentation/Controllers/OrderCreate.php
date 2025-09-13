@@ -18,6 +18,9 @@ final class OrderCreate extends AbstractController
     {
     }
 
+    /**
+     * @todo reproduce case with multiple requests, add idempotency key handler
+     */
     public function __invoke(
         #[MapRequestPayload(
             acceptFormat: 'json',
