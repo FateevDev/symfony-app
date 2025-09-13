@@ -11,3 +11,5 @@ api_routes:
     resource: '../src/Controller/Api/'
     type: attribute
     prefix: /api
+    defaults:
+      _format: json

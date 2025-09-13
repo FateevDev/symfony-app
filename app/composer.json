@@ -67,12 +67,14 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Order\\": "modules/order/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "App\\Tests\\": "tests/",
+            "Order\\Tests\\": "modules/order/tests/"
         }
     },
     "replace": {

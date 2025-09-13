@@ -16,7 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Throwable;
 
-#[Route('/register', methods: ['POST'], format: 'json')]
+#[Route('/register', methods: ['POST'])]
 final class RegisterController extends AbstractController
 {
     public function __construct(

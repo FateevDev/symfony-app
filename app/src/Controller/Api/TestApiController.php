@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('test', methods: ['GET'], format: 'json')]
+#[Route('test', methods: ['GET'])]
 final class TestApiController extends AbstractController
 {
     public function __construct(private readonly UserHandler $userHandler)

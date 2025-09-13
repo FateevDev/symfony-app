@@ -51,3 +51,6 @@ migrations-generate:
 
 generate-keypair:
 	docker compose exec backend php bin/console lexik:jwt:generate-keypair
+
+composer-dump-autoload:
+	docker compose exec backend composer dump-autoload
