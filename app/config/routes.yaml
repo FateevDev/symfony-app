@@ -12,4 +12,9 @@ api_routes:
     type: attribute
     prefix: /api
     defaults:
-      _format: json
+        _format: json
+
+modules_routes:
+    resource: '../modules/*/config/routes.yaml'
+    prefix: /api
+    name_prefix: api.modules.
