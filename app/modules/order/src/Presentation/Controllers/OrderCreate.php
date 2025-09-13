@@ -9,8 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/', name: 'order', methods: ['POST'])]
-final class OrderController extends AbstractController
+#[Route('/create', name: 'create', methods: ['POST'])]
+final class OrderCreate extends AbstractController
 {
     public function __construct(private readonly OrderHandler $orderHandler)
     {
