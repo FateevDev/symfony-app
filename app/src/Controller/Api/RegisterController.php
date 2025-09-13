@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
 use App\Dto\UserDto;
 use App\Entity\User;
@@ -16,7 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Throwable;
 
-#[Route('/test', methods: ['POST'], format: 'json')]
+#[Route('/register', methods: ['POST'], format: 'json')]
 final class RegisterController extends AbstractController
 {
     public function __construct(
@@ -26,7 +26,6 @@ final class RegisterController extends AbstractController
     ) {
     }
 
-    #[Route('/')]
     public function __invoke(
         #[MapRequestPayload(
             acceptFormat: 'json',
