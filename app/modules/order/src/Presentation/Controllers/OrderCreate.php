@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace MyApp\Order\Presentation\Controllers;
 
 use MyApp\Order\Application\Services\OrderHandler;
+use MyApp\Order\Presentation\Dto\OrderCreateDto;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/create', name: 'create', methods: ['POST'])]
@@ -16,7 +18,11 @@ final class OrderCreate extends AbstractController
     {
     }
 
-    public function __invoke(): JsonResponse
+    public function __invoke(
+        #[MapRequestPayload(
+            acceptFormat: 'json',
+        )] OrderCreateDto $orderCreateDto,
+    ): JsonResponse
     {
         $this->orderHandler->handle();
 
