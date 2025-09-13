@@ -1,7 +1,7 @@
 order_api:
     resource: '../src/Controller/Api/'
     type: attribute
-    prefix: /order-api
-    name_prefix: order-api
+    prefix: /order
+    name_prefix: order
     defaults:
       _format: json

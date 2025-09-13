@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Repository;
+namespace MyApp\Order\Domain\Repository;
 
 interface OrderRepository
 {
