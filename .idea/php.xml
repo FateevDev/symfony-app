@@ -141,6 +141,7 @@
       <path value="$PROJECT_DIR$/app/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/app/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/app/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/app/vendor/psy/psysh" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

@@ -16,6 +16,9 @@ env:
 bash:
 	docker compose exec backend bash
 
+composer:
+	docker compose run --rm -it backend_cli bash
+
 SERVICE_NAME = $(filter-out $@,$(MAKECMDGOALS))
 %:
  @:
